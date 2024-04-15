@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="../css/LoginScript.css">
+</head>
+<body>
+    <div class="login-container">
+        
+        <div class="login-box">
+            <div class="logo">
+                <img src="../img/logo_ptit.png" alt="Logo PTIT">
+                <div class="school-info">
+                    <span class="bold">HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG</span><br>
+                    Posts and Telecommunications Institude of Technology
+                </div>
+            </div>
+            
+            <h2>Đăng nhập</h2>
+            <form id="login-form" action="#" method="post">
+                <input type="text" id="username" name="username" placeholder="Tên đăng nhập ">
+                <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                <label for="remember"><input type="checkbox" id="remember" name="remember"> Ghi nhớ đăng nhập</label>
+                <a href="#">Quên mật khẩu</a>
+                <button type="submit">Đăng nhập</button>
+            </form>
+            <div class="or">
+                <span>Hoặc đăng nhập với</span>
+                <div class="office-365">PTIT Microsoft Office 365</div>
+            </div>
+            <div class="register">
+                Chưa có tài khoản? <a href="#" id="register-link">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+    <div id="register-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Đăng ký</h2>
+            <form id="register-form" action="#" method="post">
+                <label for="name">Tên:</label>
+                <input type="text" id="nameRegister" name="nameRegister" placeholder="Nhập tên" required><br><br>
+
+                <label for="gender">Giới tính:</label>
+                <select id="genderRegister" name="genderRegister" required>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select><br><br>
+
+                <label for="username">Tên đăng nhập:</label>
+                <input type="text" id="usernameRegister" name="usernameRegister" placeholder="Nhập tên đăng nhập" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="emailRegister" name="emailRegister" placeholder="Nhập email" required><br><br>
+
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="passwordRegister" name="passwordRegister" placeholder="Nhập mật khẩu" required><br><br>
+
+                <label for="confirm-password">Xác nhận mật khẩu:</label>
+                <input type="password" id="confirmPasswordRegister" name="confirmPasswordRegister" placeholder="Nhập lại mật khẩu" required><br><br>
+
+                <label for="roles">Vai trò:</label>
+                <select id="roles" name="roles" required>
+                    <option value="student">student</option>
+                    <option value="admin">admin</option>
+                    <option value="developer">developer</option>
+                </select><br><br>
+
+                <button type="submit">Đăng ký</button>
+                </div>
+            
+        </div>
+    <script src="../script/LoginScript.js"></script>
+</body>
+</html>

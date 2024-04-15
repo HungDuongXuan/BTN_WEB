@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Exam</title>
+    <!-- Thêm các tài nguyên CSS và JavaScript cần thiết -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Question Exam</h2>
+        <div id="examQuestions">
+            <!-- Câu hỏi sẽ được tạo và thêm vào đây bằng JavaScript -->
+        </div>
+        <hr>
+        <!-- Bộ đếm thời gian làm bài -->
+        <div id="timer">
+            <p>Thời gian còn lại: <span id="time">60:00</span></p>
+        </div>
+        <hr>
+        <!-- Nút nộp bài -->
+        <button type="button" class="btn btn-primary" onclick="submitExam()">Nộp bài</button>
+        <hr>
+        <!-- Hiển thị kết quả sau khi nộp bài -->
+        <div id="result" style="display: none;">
+            <h4>Kết quả:</h4>
+            <p id="score"></p>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Function to submit the exam
+        function submitExam() {
+            // Code to submit the exam to the backend
+            // và nhận lại kết quả từ backend
+            // Sau đó, hiển thị kết quả lên trang
+            document.getElementById("result").style.display = "block"; // Hiển thị kết quả
+        }
+
+        // Function to render exam questions
+        function renderQuestions(questions) {
+            const examQuestionsContainer = document.getElementById('examQuestions');
+            questions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.classList.add('question');
+                questionElement.innerHTML = `
+                    <p>Câu hỏi ${index + 1}: ${question.content}</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer${question.id}" id="answer${question.id}1" value="1">
+                        <label class="form-check-label" for="answer${question.id}1">${question.answer1}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer${question.id}" id="answer${question.id}2" value="2">
+                        <label class="form-check-label" for="answer${question.id}2">${question.answer2}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer${question.id}" id="answer${question.id}3" value="3">
+                        <label class="form-check-label" for="answer${question.id}3">${question.answer3}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer${question.id}" id="answer${question.id}4" value="4">
+                        <label class="form-check-label" for="answer${question.id}4">${question.answer4}</label>
+                    </div>
+                    <hr>
+                `;
+                examQuestionsContainer.appendChild(questionElement);
+            });
+        }
+
+        // Function to start the timer
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        // Call renderQuestions function to render questions when the page loads
+        window.onload = function() {
+            // Lấy danh sách các câu hỏi từ controller
+            fetch("/exams/listDetail") // Gửi yêu cầu GET đến endpoint
+                .then(response => response.json()) // Chuyển đổi response thành JSON
+                .then(examDetail => { // Lấy thông tin chi tiết từ response
+                    const questions = examDetail.question; // Lấy danh sách câu hỏi từ thông tin chi tiết
+                    renderQuestions(questions); // Render exam questions
+                    const timeInMinutes = 60 * questions.length; // 1 phút cho mỗi câu hỏi
+                    const display = document.querySelector('#time');
+                    startTimer(timeInMinutes, display); // Start the timer
+                })
+                .catch(error => console.error('Error:', error)); // Xử lý lỗi nếu có
+        };
+    </script>
+</body>
+</html>

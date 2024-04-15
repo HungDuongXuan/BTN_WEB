@@ -1,0 +1,245 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    background-color: rgb(245, 245, 245);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+    cursor: pointer;
+    background-color: rgb(165, 0, 0);
+    color: white;
+    width: 140px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    margin: 20px;
+}
+
+*:focus {
+    outline: none;
+  }
+
+.title-bar{
+    display: flex;
+    background-color: rgb(165, 0, 0);
+    align-items: center;
+    height: 60px;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+.title-bar h1{
+    color: rgb(255, 255, 255);
+    font-family: arial;
+    display: block;
+    margin: auto;
+    font-size: 33px;
+}
+
+.img-container{
+    display: flex;
+    background-color: white;
+    border-radius: 30px;
+    height: 47px;
+    width: 47px;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container img{
+    width: 38px;
+    height: 38px;
+}
+
+.search-box{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-box form input{
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px 5px;
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 5px;
+}
+
+.search-box form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-text{
+    width: 20%;
+    background-color: rgb(255, 234, 234);
+}
+
+.input-button{
+    color: white;
+    background-color: rgb(165, 0, 0);
+    cursor: pointer;
+}
+
+.input-button:hover{
+    background-color: rgb(186, 0, 0);
+}
+
+.info-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-img-container{
+    width: 20%;
+}
+
+.profile-img-container img{
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgb(134, 253, 142);
+    border-radius: 80px;
+}
+
+.info{
+    background-color: rgb(134, 253, 142);
+    border: 2px solid rgb(91, 225, 98);
+    font-family: arial;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    display: flex;
+    width: 68%;
+    margin: 20px;
+}
+
+.exam-joined-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    height: auto;
+}
+
+.exam-joined-box table{
+    width: 70%;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    table-layout: fixed;
+}
+
+.exam-joined-box table tr{
+    height: 40px;
+}
+
+td:nth-child(1),
+th:nth-child(1) {
+  width: 50%;
+}
+
+th{
+    background-color: rgb(255, 148, 148);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.exam-detail-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.test{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px 100px;
+    padding-top: 0;
+    box-sizing: border-box;
+    margin: 40px;
+    border: 4px solid rgb(165, 0, 0);
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    width: 70%;
+}
+
+.test h2{
+    font-family: arial;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+    color: rgb(255, 255, 255);
+    border: 3px solid rgb(165, 0, 0);
+    padding: 10px;
+    background-color: rgb(165, 0, 0);
+    width: 90%;
+    text-align: center;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+}
+
+.export-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+h3{
+    margin: 0;
+}
+
+.selected-answer{
+    color: rgb(255, 86, 86);
+    font-weight: bold;
+}
+
+.correct-answer{
+    color: rgb(0, 144, 0);
+    font-weight: bold;
+}
+
+.explaination{
+    background-color: rgb(154, 194, 255);
+    border-radius: 5px;
+    border: 2px solid rgb(98, 155, 255);
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.question{
+    background-color: rgb(240, 240, 240);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgb(178, 178, 178);
+}
+
+.answer{
+    margin: 10px 20px;
+}

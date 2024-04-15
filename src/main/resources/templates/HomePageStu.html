@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chính</title>
+    <link rel="stylesheet" href="../css/HomePageStu.css">
+</head>
+<body>
+    <div class="header">
+        <img src="../img/logo_ptit.png" alt="ptit-logo" />
+        <div class="header-label">
+            <div>HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG</div>
+        </div>
+    </div>
+
+    <div style="text-align: center">
+        <h2>Danh sách các bài thi</h2>
+    </div>
+    <div class="content">
+        <div class="left-content">
+            <div>
+                <label for="examCode">Chọn mã đề:</label>
+                <input type="text" id="examCode" placeholder="Nhập mã đề" />
+                <select id="examType">
+                    <option value="mock-exam">Loại đề</option>
+                    <option value="practice-exam">Luyện tập</option>
+                    <option value="midterm-exam">Giữa kì</option>
+                    <option value="final-exam">Cuối kì</option>
+                </select>
+                <button onclick="searchExam()">Tìm kiếm</button>
+            </div>
+
+            <button onclick="showMockExams()">Đề thi</button>
+            <button onclick="showPracticeExams()">Luyện tập</button>
+            <button onclick="showMidtermExams()">Giữa kì</button>
+            <button onclick="showFinalExams()">Cuối kì</button>
+        </div>
+        <div class="right-content">
+            <div class="list-exam" id="examList">
+                <!-- Danh sách các bài thi sẽ được hiển thị ở đây -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch exam data from the backend
+        async function fetchExams() {
+            try {
+                const response = await fetch('/exams/list');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching exams:', error);
+            }
+        }
+
+        // Function to render the list of exams on the page
+        async function renderExams() {
+            const exams = await fetchExams();
+            const examsContainer = document.getElementById('examList');
+
+            exams.forEach(exam => {
+                const examElement = document.createElement('div');
+                examElement.classList.add('exam');
+                examElement.innerHTML = `
+                    <a href="/exams/QuestionExam/${exam.id}">
+                        <h3>${exam.name}</h3>
+                        <p>Thời gian: ${exam.timeDuration} phút</p>
+                    </a>
+                `;
+                examsContainer.appendChild(examElement);
+            });
+        }
+
+        // Call renderExams function when the page loads
+        window.onload = renderExams;
+
+        // Function to handle exam search
+        function searchExam() {
+            const examCode = document.getElementById('examCode').value;
+            const examType = document.getElementById('examType').value;
+
+            // Call the backend endpoint to search exams by code and type
+            // Update the UI with the filtered exams
+            // This logic depends on your backend implementation
+        }
+
+        // Functions to filter exams by type
+        function showMockExams() {
+            // Call the backend endpoint to get mock exams
+            // Update the UI with the mock exams
+            // This logic depends on your backend implementation
+        }
+
+        function showPracticeExams() {
+            // Call the backend endpoint to get practice exams
+            // Update the UI with the practice exams
+            // This logic depends on your backend implementation
+        }
+
+        function showMidtermExams() {
+            // Call the backend endpoint to get midterm exams
+            // Update the UI with the midterm exams
+            // This logic depends on your backend implementation
+        }
+
+        function showFinalExams() {
+            // Call the backend endpoint to get final exams
+            // Update the UI with the final exams
+            // This logic depends on your backend implementation
+        }
+    </script>
+</body>
+</html>

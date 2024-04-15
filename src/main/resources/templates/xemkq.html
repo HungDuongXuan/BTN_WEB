@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Xem kết quả</title>
+    <link rel="stylesheet" href="../css/style_xemkq.css">
+</head>
+
+<body>
+    <div class="title-bar">
+        <div class="img-container">
+            <img src="../img/logo_ptit.png">
+        </div>
+        <h1>Xem kết quả sinh viên</h1>
+    </div>
+
+    <div class="search-box">
+        <form action="" onsubmit="showResult()">
+            <input class="input-text" type="text" placeholder="Nhập mã sinh viên" required>
+            <input class="input-button" type="button" value="Tìm kiếm" onclick="findUser()">
+        </form>
+    </div>
+    
+    <div id="result">
+        <div class="info-box">      
+        </div>
+        <div class="exam-joined-box">
+            
+        </div>
+    
+        <div class="exam-detail-box">
+            
+        </div>
+    </div>
+    <script src="../script/script_xemkq.js"></script>
+</body>
+
+</html>

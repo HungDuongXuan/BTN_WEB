@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #a31b06;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    font-size: 25px;
+}
+
+section {
+    margin: 20px;
+}
+
+#filter, #statistics, #export {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+canvas {
+    border: 1px solid #ccc;
+}
+
+#scoreDistribution{
+    p {
+        display:flow-root;
+        display: inline-block;
+        text-align: center;
+        font-size: 30px;
+        background-color: #fff4ef;
+        border-radius: 20px;
+        padding: 10px; /* Thêm padding để kiểm soát khoảng trống xung quanh nội dung */
+    }
+}
+
+#filter{
+    label, select, option{
+        font-size: 25px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+}
+
+#totalParticipation, #completionRate, #averageScore{
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    height: auto;
+    width: 120px;
+    padding: 15px 30px; /* Kích thước lớn */
+    border-radius: 20px; /* Bo góc 20px */
+    font-weight: bold; /* Chữ in đậm */
+    font-size: 17px;
+    border: 2px solid #c73a27; /* Viền đỏ */
+    background-color: #ffd9d0; /* Màu nền */
+    color: #000000; /* Màu chữ đỏ */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển động mượt mà */
+}
+
+button:hover {
+    background-color: #ab2f1b; /* Màu nền khi hover */
+    color: #ffffff; /* Màu chữ khi hover */
+}
+
+#export {
+    display: flex;
+    
+}
+
+#export button {
+    margin-right: 10px; /* Khoảng cách giữa hai nút */
+}
+
+label{
+    font-weight: bold;
+
+}

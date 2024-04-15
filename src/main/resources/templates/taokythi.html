@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo/chỉnh sửa kỳ thi</title>
+    <link rel="stylesheet" href="../css/style_taokythi.css">
+</head>
+<body>
+    <div class="title-bar">
+        <div class="img-container">
+            <img src="../img/logo_ptit.png">
+        </div>
+        <h1>Tạo/chỉnh sửa kỳ thi</h1>
+    </div>
+
+    <h2>DANH SÁCH KỲ THI HIỆN CÓ</h2>
+    <div class="exam-list">
+        
+    </div>
+    <h2>TẠO/CHỈNH SỬA KỲ THI</h2>
+    <button id="new-exam-button" onclick="loadNewExamTemplate()">Kỳ thi mới</button>
+    <form class="test-form">
+        <div class="title-box">
+            <input id="input-exam-name" type="text" placeholder="Nhập tên kỳ thi">
+        </div>
+
+        <div class="description">
+            <textarea id="input-exam-description" type="text" placeholder="Mô tả cho kỳ thi"></textarea>
+        </div>
+
+        <div class="select-type-box">
+            <div class="select-type">
+                <div>
+                    <input type="radio" id="with-time" name="type" onchange="checkTimeAvailable()">
+                    <label for="with-time">Thời gian cụ thể</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="without-time" name="type" onchange="checkTimeAvailable()">
+                    <label for="without-time">Tự do</label>
+                </div>
+            </div>
+
+            <div class="date-picker">
+                <div>
+                    <label>Bắt đầu&colon;&nbsp;</label>
+                    <input type="datetime-local" id="start">
+                </div>
+
+                <div>
+                    <label>Kết thúc&colon;</label>
+                    <input type="datetime-local" id="end">
+                </div>
+            </div>
+
+            <div class="time-duration">
+                <label>Thời gian&colon;</label>
+                <input type="text" placeholder="Nhập thời gian (phút)" id="input-time-duration">
+            </div>
+        </div>
+
+        <input id="create-exam-button" class="create-exam" type="submit" value="Tạo kỳ thi" onclick="createNewExam()">
+    </form>
+    <div class="test-box">
+        
+    </div>
+    <div class="new-question-template">
+        
+    </div>
+    <script src="../script/script_taokythi.js"></script>
+</body>
+</html>
